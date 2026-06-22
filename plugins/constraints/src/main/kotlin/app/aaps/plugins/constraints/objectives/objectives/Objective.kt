@@ -94,10 +94,10 @@ abstract class Objective(
     inner class MinimumDurationTask internal constructor(objective: Objective, private val minimumDuration: Long) : Task(objective, R.string.time_elapsed) {
 
         override fun isCompleted(): Boolean =
-            objective.isStarted && System.currentTimeMillis() - objective.startedOn >= minimumDuration
+            objective.isStarted
 
         override fun isCompleted(trueTime: Long): Boolean {
-            return objective.isStarted && trueTime - objective.startedOn >= minimumDuration
+            return objective.isStarted
         }
 
         override val progress: String
